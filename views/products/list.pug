@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    .row
+        .col-sm-8
+            h1 Available Courses
+
+        .col-sm-4
+            a(href="/products/add",class="btn btn-success float-right") Add A Course
+        
+    table.table
+        thead 
+            tr
+                th Course Name
+                th Course ID
+                th Course Duration(Hrs)
+                th Course Fee($)
+                
+                
+
+        tbody
+            each product in products
+                tr
+                    td=product.courseName
+                    td=product.id
+                    td=product.courseDuration
+                    td=product.courseFee
+                    td
+                        a(href="/products/delete/"+product._id, class="btn btn-danger") Delete
+                        a(href="/products/edit/"+product._id, class="btn btn-warning") Edit
+
+                        
+                        
